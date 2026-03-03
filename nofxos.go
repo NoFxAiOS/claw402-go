@@ -42,7 +42,7 @@ type NofxosAi300ListParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// AI300 quant model rankings (by fund flow strength) — $0.001/call
+// AI300 quant model rankings (by fund flow strength) — $0.00001/call
 func (r *NofxosAi300) List(ctx context.Context, params *NofxosAi300ListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -51,7 +51,7 @@ func (r *NofxosAi300) List(ctx context.Context, params *NofxosAi300ListParams) (
 	return r.client.get(ctx, "/api/v1/nofx/ai300/list", q)
 }
 
-// AI300 model statistics (by signal strength distribution) — $0.001/call
+// AI300 model statistics (by signal strength distribution) — $0.00001/call
 func (r *NofxosAi300) Stats(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/nofx/ai300/stats", nil)
 }
@@ -67,7 +67,7 @@ type NofxosOiTopRankingParams struct {
 	Duration string `json:"duration,omitempty"`
 }
 
-// Top open interest increase rankings — $0.001/call
+// Top open interest increase rankings — $0.00001/call
 func (r *NofxosOi) TopRanking(ctx context.Context, params *NofxosOiTopRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -85,7 +85,7 @@ type NofxosOiLowRankingParams struct {
 	Duration string `json:"duration,omitempty"`
 }
 
-// Top open interest decrease rankings — $0.001/call
+// Top open interest decrease rankings — $0.00001/call
 func (r *NofxosOi) LowRanking(ctx context.Context, params *NofxosOiLowRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -110,7 +110,7 @@ type NofxosNetflowTopRankingParams struct {
 	Trade string `json:"trade,omitempty"`
 }
 
-// Top net capital inflow rankings — $0.001/call
+// Top net capital inflow rankings — $0.00001/call
 func (r *NofxosNetflow) TopRanking(ctx context.Context, params *NofxosNetflowTopRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -136,7 +136,7 @@ type NofxosNetflowLowRankingParams struct {
 	Trade string `json:"trade,omitempty"`
 }
 
-// Top net capital outflow rankings — $0.001/call
+// Top net capital outflow rankings — $0.00001/call
 func (r *NofxosNetflow) LowRanking(ctx context.Context, params *NofxosNetflowLowRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -164,7 +164,7 @@ type NofxosPriceRankingParams struct {
 	Duration string `json:"duration,omitempty"`
 }
 
-// Price change rankings (gainers & losers) — $0.001/call
+// Price change rankings (gainers & losers) — $0.00001/call
 func (r *NofxosPrice) Ranking(ctx context.Context, params *NofxosPriceRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Duration != "" {
@@ -183,7 +183,7 @@ type NofxosLongShortListParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Long/short ratio anomaly coin list — $0.001/call
+// Long/short ratio anomaly coin list — $0.00001/call
 func (r *NofxosLongShort) List(ctx context.Context, params *NofxosLongShortListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -202,7 +202,7 @@ type NofxosFundingRateTopParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Top positive funding rate rankings — $0.001/call
+// Top positive funding rate rankings — $0.00001/call
 func (r *NofxosFundingRate) Top(ctx context.Context, params *NofxosFundingRateTopParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -216,7 +216,7 @@ type NofxosFundingRateLowParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Top negative funding rate rankings — $0.001/call
+// Top negative funding rate rankings — $0.00001/call
 func (r *NofxosFundingRate) Low(ctx context.Context, params *NofxosFundingRateLowParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -235,7 +235,7 @@ type NofxosOiCapRankingParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Open interest market cap rankings — $0.001/call
+// Open interest market cap rankings — $0.00001/call
 func (r *NofxosOiCap) Ranking(ctx context.Context, params *NofxosOiCapRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -254,7 +254,7 @@ type NofxosUpbitHotParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Upbit hot coins rankings (by trading volume) — $0.001/call
+// Upbit hot coins rankings (by trading volume) — $0.00001/call
 func (r *NofxosUpbit) Hot(ctx context.Context, params *NofxosUpbitHotParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -269,7 +269,7 @@ type NofxosUpbitNetflowTopRankingParams struct {
 	Duration string `json:"duration,omitempty"`
 }
 
-// Upbit net inflow rankings — $0.001/call
+// Upbit net inflow rankings — $0.00001/call
 func (r *NofxosUpbit) NetflowTopRanking(ctx context.Context, params *NofxosUpbitNetflowTopRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -287,7 +287,7 @@ type NofxosUpbitNetflowLowRankingParams struct {
 	Duration string `json:"duration,omitempty"`
 }
 
-// Upbit net outflow rankings — $0.001/call
+// Upbit net outflow rankings — $0.00001/call
 func (r *NofxosUpbit) NetflowLowRanking(ctx context.Context, params *NofxosUpbitNetflowLowRankingParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
@@ -310,7 +310,7 @@ type NofxosHeatmapListParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Order book heatmap overview (all coins) — $0.001/call
+// Order book heatmap overview (all coins) — $0.00001/call
 func (r *NofxosHeatmap) List(ctx context.Context, params *NofxosHeatmapListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Trade != "" {
@@ -332,7 +332,7 @@ type NofxosQueryRankListParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// Today's most searched coin rankings — $0.001/call
+// Today's most searched coin rankings — $0.00001/call
 func (r *NofxosQueryRank) List(ctx context.Context, params *NofxosQueryRankListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Limit != "" {
