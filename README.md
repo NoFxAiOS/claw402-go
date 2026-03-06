@@ -5,7 +5,7 @@
 
 Typed Go SDK for [claw402.ai](https://claw402.ai) — pay-per-call data APIs via [x402](https://www.x402.org/) micropayments.
 
-**200+ endpoints** covering crypto market data, US stocks, China A-shares, forex, global time-series, and AI (OpenAI/Anthropic). No API key, no signup, no subscription — just a Base wallet with USDC.
+**200+ endpoints** covering crypto market data, US stocks, China A-shares, forex, global time-series, and AI (OpenAI/Anthropic/DeepSeek/Qwen). No API key, no signup, no subscription — just a Base wallet with USDC.
 
 ## Install
 
@@ -71,7 +71,7 @@ func main() {
 
 - **Typed methods** — every endpoint has a dedicated Go function with typed params struct
 - **Automatic x402 payment** — signs EIP-3009 USDC transfers locally, never sends your key
-- **9 provider groups** — crypto, US stocks, China stocks, forex, global data, and AI
+- **11 provider groups** — crypto, US stocks, China stocks, forex, global data, and AI
 - **Base mainnet** — pays USDC per call on Coinbase L2
 
 ## API Overview
@@ -276,6 +276,36 @@ resp, _ := client.Anthropic.Anthropic.Messages(ctx, map[string]interface{}{
     "max_tokens": 1024,
     "messages": []map[string]string{
         {"role": "user", "content": "Summarize this earnings report: ..."},
+    },
+})
+fmt.Println(string(resp))
+```
+
+#### DeepSeek
+
+| Resource | Methods | Description |
+|----------|---------|-------------|
+| `Deepseek.Deepseek` | `Chat`, `ChatReasoner`, `Completions`, `Models` | DeepSeek chat, reasoning, beta completions, model listing — $0.001–0.005/call |
+
+```go
+resp, _ := client.Deepseek.Deepseek.Chat(ctx, map[string]interface{}{
+    "messages": []map[string]string{
+        {"role": "user", "content": "Explain BTC basis trade"},
+    },
+})
+fmt.Println(string(resp))
+```
+
+#### Qwen
+
+| Resource | Methods | Description |
+|----------|---------|-------------|
+| `Qwen.Qwen` | `ChatMax`, `ChatPlus`, `ChatTurbo`, `ChatFlash`, `ChatCoder`, `ChatVl` | Qwen chat, coder, and vision models — $0.002–0.01/call |
+
+```go
+resp, _ := client.Qwen.Qwen.ChatMax(ctx, map[string]interface{}{
+    "messages": []map[string]string{
+        {"role": "user", "content": "Write a Go HTTP middleware"},
     },
 })
 fmt.Println(string(resp))

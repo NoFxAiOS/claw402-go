@@ -67,6 +67,8 @@ type Client struct {
 	// AI model providers
 	Openai    *OpenaiResource
 	Anthropic *AnthropicResource
+	Deepseek  *DeepseekResource
+	Qwen      *QwenResource
 }
 
 // New creates a new claw402 client with the given private key.
@@ -106,6 +108,8 @@ func New(privateKey string, opts ...Option) (*Client, error) {
 	// AI models
 	c.Openai = newOpenaiResource(c)
 	c.Anthropic = newAnthropicResource(c)
+	c.Deepseek = newDeepseekResource(c)
+	c.Qwen = newQwenResource(c)
 	return c, nil
 }
 
