@@ -35,13 +35,15 @@ func (r *DeepseekDeepseek) Models(ctx context.Context) (json.RawMessage, error) 
 
 // DeepseekResource provides access to all DeepSeek API endpoints.
 type DeepseekResource struct {
-	client   *Client
+	client *Client
 	Deepseek *DeepseekDeepseek
 }
 
 func newDeepseekResource(c *Client) *DeepseekResource {
 	return &DeepseekResource{
-		client:   c,
+		client: c,
 		Deepseek: &DeepseekDeepseek{client: c},
 	}
 }
+
+

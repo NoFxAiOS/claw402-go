@@ -23,7 +23,7 @@ type CoinankKlineListsParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Candlestick data (SWAP/SPOT, multi-exchange) — $0.00001/call
+// Candlestick data (SWAP/SPOT, multi-exchange) — $0.001/call
 func (r *CoinankKline) Lists(ctx context.Context, params *CoinankKlineListsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -52,27 +52,27 @@ type CoinankEtf struct {
 	client *Client
 }
 
-// US Bitcoin ETF list (IBIT, FBTC, etc.) — $0.00001/call
+// US Bitcoin ETF list (IBIT, FBTC, etc.) — $0.001/call
 func (r *CoinankEtf) UsBtc(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/etf/us-btc", nil)
 }
 
-// US Ethereum ETF list — $0.00001/call
+// US Ethereum ETF list — $0.001/call
 func (r *CoinankEtf) UsEth(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/etf/us-eth", nil)
 }
 
-// US BTC ETF historical net inflow data — $0.00001/call
+// US BTC ETF historical net inflow data — $0.001/call
 func (r *CoinankEtf) UsBtcInflow(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/etf/us-btc-inflow", nil)
 }
 
-// US ETH ETF historical net inflow data — $0.00001/call
+// US ETH ETF historical net inflow data — $0.001/call
 func (r *CoinankEtf) UsEthInflow(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/etf/us-eth-inflow", nil)
 }
 
-// Hong Kong ETF historical net inflow data — $0.00001/call
+// Hong Kong ETF historical net inflow data — $0.001/call
 func (r *CoinankEtf) HkInflow(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/etf/hk-inflow", nil)
 }
@@ -90,7 +90,7 @@ type CoinankHyperTopPositionParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// HyperLiquid whale position rankings — $0.00001/call
+// HyperLiquid whale position rankings — $0.001/call
 func (r *CoinankHyper) TopPosition(ctx context.Context, params *CoinankHyperTopPositionParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.SortBy != "" {
@@ -108,7 +108,7 @@ func (r *CoinankHyper) TopPosition(ctx context.Context, params *CoinankHyperTopP
 	return r.client.get(ctx, "/api/v1/coinank/hyper/top-position", q)
 }
 
-// HyperLiquid whale latest trade actions — $0.00001/call
+// HyperLiquid whale latest trade actions — $0.001/call
 func (r *CoinankHyper) TopAction(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/hyper/top-action", nil)
 }
@@ -127,7 +127,7 @@ type CoinankTradesLargeParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Large market order list (whale trade monitor) — $0.00001/call
+// Large market order list (whale trade monitor) — $0.001/call
 func (r *CoinankTrades) Large(ctx context.Context, params *CoinankTradesLargeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -165,7 +165,7 @@ type CoinankBigOrderListParams struct {
 	StartTime string `json:"startTime,omitempty"`
 }
 
-// Large limit order list — $0.00001/call
+// Large limit order list — $0.001/call
 func (r *CoinankBigOrder) List(ctx context.Context, params *CoinankBigOrderListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -207,7 +207,7 @@ type CoinankPriceLastParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Trading pair latest real-time price — $0.00001/call
+// Trading pair latest real-time price — $0.001/call
 func (r *CoinankPrice) Last(ctx context.Context, params *CoinankPriceLastParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -232,7 +232,7 @@ type CoinankCoinMarketCapParams struct {
 	BaseCoin string `json:"baseCoin,omitempty"`
 }
 
-// Coin market cap information — $0.00001/call
+// Coin market cap information — $0.001/call
 func (r *CoinankCoin) MarketCap(ctx context.Context, params *CoinankCoinMarketCapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -246,7 +246,7 @@ type CoinankCoinListParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Supported coins list — $0.00001/call
+// Supported coins list — $0.001/call
 func (r *CoinankCoin) List(ctx context.Context, params *CoinankCoinListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.ProductType != "" {
@@ -261,7 +261,7 @@ type CoinankCoinSymbolsParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Supported trading pairs list (by exchange) — $0.00001/call
+// Supported trading pairs list (by exchange) — $0.001/call
 func (r *CoinankCoin) Symbols(ctx context.Context, params *CoinankCoinSymbolsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -286,7 +286,7 @@ type CoinankLongshortBuySellParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Global long/short buy-sell ratio history — $0.00001/call
+// Global long/short buy-sell ratio history — $0.001/call
 func (r *CoinankLongshort) BuySell(ctx context.Context, params *CoinankLongshortBuySellParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -310,7 +310,7 @@ type CoinankLongshortRealtimeParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Real-time long/short ratio by exchange — $0.00001/call
+// Real-time long/short ratio by exchange — $0.001/call
 func (r *CoinankLongshort) Realtime(ctx context.Context, params *CoinankLongshortRealtimeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -331,7 +331,7 @@ type CoinankLongshortPersonParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Long/short account count ratio history (Binance/OKX/Bybit) — $0.00001/call
+// Long/short account count ratio history (Binance/OKX/Bybit) — $0.001/call
 func (r *CoinankLongshort) Person(ctx context.Context, params *CoinankLongshortPersonParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -361,7 +361,7 @@ type CoinankLongshortPositionParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Whale long/short position ratio (by position size) — $0.00001/call
+// Whale long/short position ratio (by position size) — $0.001/call
 func (r *CoinankLongshort) Position(ctx context.Context, params *CoinankLongshortPositionParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -391,7 +391,7 @@ type CoinankLongshortAccountParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Whale long/short ratio by account count (VIP1) — $0.00001/call
+// Whale long/short ratio by account count (VIP1) — $0.001/call
 func (r *CoinankLongshort) Account(ctx context.Context, params *CoinankLongshortAccountParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -422,7 +422,7 @@ type CoinankLongshortKlineParams struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Long/short ratio candlestick (VIP1; type: longShortPerson/Position/Account) — $0.00001/call
+// Long/short ratio candlestick (VIP1; type: longShortPerson/Position/Account) — $0.001/call
 func (r *CoinankLongshort) Kline(ctx context.Context, params *CoinankLongshortKlineParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -461,7 +461,7 @@ type CoinankMarketOrderCvdParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// CVD cumulative volume delta — single pair (VIP3) — $0.00001/call
+// CVD cumulative volume delta — single pair (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) Cvd(ctx context.Context, params *CoinankMarketOrderCvdParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -495,7 +495,7 @@ type CoinankMarketOrderBuySellCountParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Market buy/sell order count — single pair (VIP3) — $0.00001/call
+// Market buy/sell order count — single pair (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) BuySellCount(ctx context.Context, params *CoinankMarketOrderBuySellCountParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -529,7 +529,7 @@ type CoinankMarketOrderBuySellValueParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Market buy/sell value in USD — single pair (VIP3) — $0.00001/call
+// Market buy/sell value in USD — single pair (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) BuySellValue(ctx context.Context, params *CoinankMarketOrderBuySellValueParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -563,7 +563,7 @@ type CoinankMarketOrderBuySellVolumeParams struct {
 	ProductType string `json:"productType,omitempty"`
 }
 
-// Market buy/sell volume in coins — single pair (VIP3) — $0.00001/call
+// Market buy/sell volume in coins — single pair (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) BuySellVolume(ctx context.Context, params *CoinankMarketOrderBuySellVolumeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -597,7 +597,7 @@ type CoinankMarketOrderAggCvdParams struct {
 	Exchanges string `json:"exchanges,omitempty"`
 }
 
-// Aggregated CVD across exchanges (VIP3) — $0.00001/call
+// Aggregated CVD across exchanges (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) AggCvd(ctx context.Context, params *CoinankMarketOrderAggCvdParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -631,7 +631,7 @@ type CoinankMarketOrderAggBuySellCountParams struct {
 	Exchanges string `json:"exchanges,omitempty"`
 }
 
-// Aggregated buy/sell count across exchanges (VIP3) — $0.00001/call
+// Aggregated buy/sell count across exchanges (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) AggBuySellCount(ctx context.Context, params *CoinankMarketOrderAggBuySellCountParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -665,7 +665,7 @@ type CoinankMarketOrderAggBuySellValueParams struct {
 	Exchanges string `json:"exchanges,omitempty"`
 }
 
-// Aggregated buy/sell value across exchanges (VIP3) — $0.00001/call
+// Aggregated buy/sell value across exchanges (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) AggBuySellValue(ctx context.Context, params *CoinankMarketOrderAggBuySellValueParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -699,7 +699,7 @@ type CoinankMarketOrderAggBuySellVolumeParams struct {
 	Exchanges string `json:"exchanges,omitempty"`
 }
 
-// Aggregated buy/sell volume across exchanges (VIP3) — $0.00001/call
+// Aggregated buy/sell volume across exchanges (VIP3) — $0.001/call
 func (r *CoinankMarketOrder) AggBuySellVolume(ctx context.Context, params *CoinankMarketOrderAggBuySellVolumeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -738,7 +738,7 @@ type CoinankNewsListParams struct {
 	Search string `json:"search,omitempty"`
 }
 
-// News/flash list (type:1=flash,2=news; lang:zh/en) — $0.00001/call
+// News/flash list (type:1=flash,2=news; lang:zh/en) — $0.001/call
 func (r *CoinankNews) List(ctx context.Context, params *CoinankNewsListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Type != "" {
@@ -767,7 +767,7 @@ type CoinankNewsDetailParams struct {
 	Id string `json:"id,omitempty"`
 }
 
-// News/flash detail (id from news/list) — $0.00001/call
+// News/flash detail (id from news/list) — $0.001/call
 func (r *CoinankNews) Detail(ctx context.Context, params *CoinankNewsDetailParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Id != "" {
@@ -781,37 +781,37 @@ type CoinankIndicator struct {
 	client *Client
 }
 
-// BTC 2-year MA multiplier indicator — $0.00001/call
+// BTC 2-year MA multiplier indicator — $0.001/call
 func (r *CoinankIndicator) BtcMultiplier(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/btc-multiplier", nil)
 }
 
-// Crypto fear & greed index — $0.00001/call
+// Crypto fear & greed index — $0.001/call
 func (r *CoinankIndicator) FearGreed(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/fear-greed", nil)
 }
 
-// AHR999 Bitcoin accumulation indicator — $0.00001/call
+// AHR999 Bitcoin accumulation indicator — $0.001/call
 func (r *CoinankIndicator) Ahr999(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/ahr999", nil)
 }
 
-// Puell Multiple indicator — $0.00001/call
+// Puell Multiple indicator — $0.001/call
 func (r *CoinankIndicator) PuellMultiple(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/puell-multiple", nil)
 }
 
-// Pi Cycle Top indicator — $0.00001/call
+// Pi Cycle Top indicator — $0.001/call
 func (r *CoinankIndicator) BtcPi(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/btc-pi", nil)
 }
 
-// 200-week moving average heatmap — $0.00001/call
+// 200-week moving average heatmap — $0.001/call
 func (r *CoinankIndicator) MaHeatmap(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/ma-heatmap", nil)
 }
 
-// Altcoin Season Index — $0.00001/call
+// Altcoin Season Index — $0.001/call
 func (r *CoinankIndicator) AltcoinSeason(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/indicator/altcoin-season", nil)
 }
@@ -821,7 +821,7 @@ type CoinankIndicatorMarketCapRankParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Coin market cap dominance rankings — $0.00001/call
+// Coin market cap dominance rankings — $0.001/call
 func (r *CoinankIndicator) MarketCapRank(ctx context.Context, params *CoinankIndicatorMarketCapRankParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -835,7 +835,7 @@ type CoinankIndicatorGrayscaleParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Grayscale holdings data (GBTC/ETHE, etc.) — $0.00001/call
+// Grayscale holdings data (GBTC/ETHE, etc.) — $0.001/call
 func (r *CoinankIndicator) Grayscale(ctx context.Context, params *CoinankIndicatorGrayscaleParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -849,7 +849,7 @@ type CoinankIndicatorChartsParams struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Composite indicator charts (type=bitcoin-rainbow-v2) — $0.00001/call
+// Composite indicator charts (type=bitcoin-rainbow-v2) — $0.001/call
 func (r *CoinankIndicator) Charts(ctx context.Context, params *CoinankIndicatorChartsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Type != "" {
@@ -868,7 +868,7 @@ type CoinankOiAllParams struct {
 	BaseCoin string `json:"baseCoin,omitempty"`
 }
 
-// Real-time open interest list by exchange — $0.00001/call
+// Real-time open interest list by exchange — $0.001/call
 func (r *CoinankOi) All(ctx context.Context, params *CoinankOiAllParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -887,7 +887,7 @@ type CoinankOiAggChartParams struct {
 	EndTime string `json:"endTime,omitempty"`
 }
 
-// Coin aggregated OI history (exchange=empty for all) — $0.00001/call
+// Coin aggregated OI history (exchange=empty for all) — $0.001/call
 func (r *CoinankOi) AggChart(ctx context.Context, params *CoinankOiAggChartParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -921,7 +921,7 @@ type CoinankOiSymbolChartParams struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Trading pair open interest history — $0.00001/call
+// Trading pair open interest history — $0.001/call
 func (r *CoinankOi) SymbolChart(ctx context.Context, params *CoinankOiSymbolChartParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -954,7 +954,7 @@ type CoinankOiKlineParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Trading pair open interest candlestick — $0.00001/call
+// Trading pair open interest candlestick — $0.001/call
 func (r *CoinankOi) Kline(ctx context.Context, params *CoinankOiKlineParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -983,7 +983,7 @@ type CoinankOiAggKlineParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Aggregated open interest candlestick — $0.00001/call
+// Aggregated open interest candlestick — $0.001/call
 func (r *CoinankOi) AggKline(ctx context.Context, params *CoinankOiAggKlineParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1006,7 +1006,7 @@ type CoinankOiByExchangeParams struct {
 	BaseCoin string `json:"baseCoin,omitempty"`
 }
 
-// Real-time open interest breakdown by exchange — $0.00001/call
+// Real-time open interest breakdown by exchange — $0.001/call
 func (r *CoinankOi) ByExchange(ctx context.Context, params *CoinankOiByExchangeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1023,7 +1023,7 @@ type CoinankOiVsMarketCapHistParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Historical open interest to market cap ratio — $0.00001/call
+// Historical open interest to market cap ratio — $0.001/call
 func (r *CoinankOi) VsMarketCapHist(ctx context.Context, params *CoinankOiVsMarketCapHistParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1051,7 +1051,7 @@ type CoinankRankScreenerParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Visual screener (multi-dimensional rankings) — $0.00001/call
+// Visual screener (multi-dimensional rankings) — $0.001/call
 func (r *CoinankRank) Screener(ctx context.Context, params *CoinankRankScreenerParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Interval != "" {
@@ -1068,7 +1068,7 @@ type CoinankRankOiVsMarketCapParams struct {
 	SortType string `json:"sortType,omitempty"`
 }
 
-// Open interest vs market cap rankings (VIP2) — $0.00001/call
+// Open interest vs market cap rankings (VIP2) — $0.001/call
 func (r *CoinankRank) OiVsMarketCap(ctx context.Context, params *CoinankRankOiVsMarketCapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Page != "" {
@@ -1094,7 +1094,7 @@ type CoinankRankLongShortParams struct {
 	Page string `json:"page,omitempty"`
 }
 
-// Long/short account count ratio rankings — $0.00001/call
+// Long/short account count ratio rankings — $0.001/call
 func (r *CoinankRank) LongShort(ctx context.Context, params *CoinankRankLongShortParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.SortBy != "" {
@@ -1120,7 +1120,7 @@ type CoinankRankOiParams struct {
 	Page string `json:"page,omitempty"`
 }
 
-// Open interest amount rankings — $0.00001/call
+// Open interest amount rankings — $0.001/call
 func (r *CoinankRank) Oi(ctx context.Context, params *CoinankRankOiParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.SortBy != "" {
@@ -1145,7 +1145,7 @@ type CoinankRankTradeCountParams struct {
 	SortType string `json:"sortType,omitempty"`
 }
 
-// Trade count rankings (VIP2; sortBy: h1Count/h4Count/d1Count) — $0.00001/call
+// Trade count rankings (VIP2; sortBy: h1Count/h4Count/d1Count) — $0.001/call
 func (r *CoinankRank) TradeCount(ctx context.Context, params *CoinankRankTradeCountParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.ProductType != "" {
@@ -1168,7 +1168,7 @@ type CoinankRankLiquidationParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Liquidation amount rankings — $0.00001/call
+// Liquidation amount rankings — $0.001/call
 func (r *CoinankRank) Liquidation(ctx context.Context, params *CoinankRankLiquidationParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.SortBy != "" {
@@ -1192,7 +1192,7 @@ type CoinankRankPriceParams struct {
 	SortType string `json:"sortType,omitempty"`
 }
 
-// Price change rankings (sortBy: priceChangeH24/priceChangeH1) — $0.00001/call
+// Price change rankings (sortBy: priceChangeH24/priceChangeH1) — $0.001/call
 func (r *CoinankRank) Price(ctx context.Context, params *CoinankRankPriceParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.SortBy != "" {
@@ -1210,7 +1210,7 @@ type CoinankRankVolumeParams struct {
 	SortType string `json:"sortType,omitempty"`
 }
 
-// Volume change rankings (sortBy: h24Volume/h1Volume) — $0.00001/call
+// Volume change rankings (sortBy: h24Volume/h1Volume) — $0.001/call
 func (r *CoinankRank) Volume(ctx context.Context, params *CoinankRankVolumeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.SortBy != "" {
@@ -1232,7 +1232,7 @@ type CoinankLiquidationIntervalsParams struct {
 	BaseCoin string `json:"baseCoin,omitempty"`
 }
 
-// Liquidation statistics across time periods — $0.00001/call
+// Liquidation statistics across time periods — $0.001/call
 func (r *CoinankLiquidation) Intervals(ctx context.Context, params *CoinankLiquidationIntervalsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1249,7 +1249,7 @@ type CoinankLiquidationAggHistoryParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Aggregated liquidation history — $0.00001/call
+// Aggregated liquidation history — $0.001/call
 func (r *CoinankLiquidation) AggHistory(ctx context.Context, params *CoinankLiquidationAggHistoryParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1276,7 +1276,7 @@ type CoinankLiquidationHistoryParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Trading pair liquidation history — $0.00001/call
+// Trading pair liquidation history — $0.001/call
 func (r *CoinankLiquidation) History(ctx context.Context, params *CoinankLiquidationHistoryParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -1306,7 +1306,7 @@ type CoinankLiquidationOrdersParams struct {
 	EndTime string `json:"endTime,omitempty"`
 }
 
-// Liquidation order list — $0.00001/call
+// Liquidation order list — $0.001/call
 func (r *CoinankLiquidation) Orders(ctx context.Context, params *CoinankLiquidationOrdersParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1334,7 +1334,7 @@ type CoinankLiquidationLiqMapParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Liquidation map (price level distribution) — $0.00001/call
+// Liquidation map (price level distribution) — $0.001/call
 func (r *CoinankLiquidation) LiqMap(ctx context.Context, params *CoinankLiquidationLiqMapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -1355,7 +1355,7 @@ type CoinankLiquidationAggLiqMapParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Aggregated liquidation map (VIP4) — $0.00001/call
+// Aggregated liquidation map (VIP4) — $0.001/call
 func (r *CoinankLiquidation) AggLiqMap(ctx context.Context, params *CoinankLiquidationAggLiqMapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1374,7 +1374,7 @@ type CoinankLiquidationHeatMapParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Liquidation heatmap — $0.00001/call
+// Liquidation heatmap — $0.001/call
 func (r *CoinankLiquidation) HeatMap(ctx context.Context, params *CoinankLiquidationHeatMapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -1389,7 +1389,7 @@ func (r *CoinankLiquidation) HeatMap(ctx context.Context, params *CoinankLiquida
 	return r.client.get(ctx, "/api/v1/coinank/liquidation/heat-map", q)
 }
 
-// Supported symbols for liquidation heatmap — $0.00001/call
+// Supported symbols for liquidation heatmap — $0.001/call
 func (r *CoinankLiquidation) HeatMapSymbols(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/coinank/liquidation/heat-map-symbols", nil)
 }
@@ -1410,7 +1410,7 @@ type CoinankOrderbookBySymbolParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Order book depth history by trading pair (VIP3) — $0.00001/call
+// Order book depth history by trading pair (VIP3) — $0.001/call
 func (r *CoinankOrderbook) BySymbol(ctx context.Context, params *CoinankOrderbookBySymbolParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -1448,7 +1448,7 @@ type CoinankOrderbookByExchangeParams struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Order book depth history by exchange (VIP3) — $0.00001/call
+// Order book depth history by exchange (VIP3) — $0.001/call
 func (r *CoinankOrderbook) ByExchange(ctx context.Context, params *CoinankOrderbookByExchangeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1484,7 +1484,7 @@ type CoinankOrderbookHeatmapParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Order book liquidity heatmap (VIP4) — $0.00001/call
+// Order book liquidity heatmap (VIP4) — $0.001/call
 func (r *CoinankOrderbook) Heatmap(ctx context.Context, params *CoinankOrderbookHeatmapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -1520,7 +1520,7 @@ type CoinankFundRealtimeParams struct {
 	BaseCoin string `json:"baseCoin,omitempty"`
 }
 
-// Real-time fund flow rankings (sortBy: h1net/h4net/h8net/h24net) — $0.00001/call
+// Real-time fund flow rankings (sortBy: h1net/h4net/h8net/h24net) — $0.001/call
 func (r *CoinankFund) Realtime(ctx context.Context, params *CoinankFundRealtimeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.ProductType != "" {
@@ -1553,7 +1553,7 @@ type CoinankFundHistoryParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Historical fund flow data — $0.00001/call
+// Historical fund flow data — $0.001/call
 func (r *CoinankFund) History(ctx context.Context, params *CoinankFundHistoryParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1590,7 +1590,7 @@ type CoinankOrderFlowListsParams struct {
 	TickCount string `json:"tickCount,omitempty"`
 }
 
-// Order flow data — $0.00001/call
+// Order flow data — $0.001/call
 func (r *CoinankOrderFlow) Lists(ctx context.Context, params *CoinankOrderFlowListsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -1630,7 +1630,7 @@ type CoinankFundingRateHistParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Historical funding rates (cross-exchange) — $0.00001/call
+// Historical funding rates (cross-exchange) — $0.001/call
 func (r *CoinankFundingRate) Hist(ctx context.Context, params *CoinankFundingRateHistParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1653,7 +1653,7 @@ type CoinankFundingRateCurrentParams struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Real-time funding rate rankings (type: current/day/week/month/year) — $0.00001/call
+// Real-time funding rate rankings (type: current/day/week/month/year) — $0.001/call
 func (r *CoinankFundingRate) Current(ctx context.Context, params *CoinankFundingRateCurrentParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Type != "" {
@@ -1667,7 +1667,7 @@ type CoinankFundingRateAccumulatedParams struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Accumulated funding rates (type: day/week/month/year) — $0.00001/call
+// Accumulated funding rates (type: day/week/month/year) — $0.001/call
 func (r *CoinankFundingRate) Accumulated(ctx context.Context, params *CoinankFundingRateAccumulatedParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Type != "" {
@@ -1685,7 +1685,7 @@ type CoinankFundingRateIndicatorParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Trading pair funding rate history (VIP1) — $0.00001/call
+// Trading pair funding rate history (VIP1) — $0.001/call
 func (r *CoinankFundingRate) Indicator(ctx context.Context, params *CoinankFundingRateIndicatorParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -1715,7 +1715,7 @@ type CoinankFundingRateKlineParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Funding rate candlestick — $0.00001/call
+// Funding rate candlestick — $0.001/call
 func (r *CoinankFundingRate) Kline(ctx context.Context, params *CoinankFundingRateKlineParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -1744,7 +1744,7 @@ type CoinankFundingRateWeightedParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Weighted average funding rate — $0.00001/call
+// Weighted average funding rate — $0.001/call
 func (r *CoinankFundingRate) Weighted(ctx context.Context, params *CoinankFundingRateWeightedParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.BaseCoin != "" {
@@ -1768,7 +1768,7 @@ type CoinankFundingRateHeatmapParams struct {
 	Interval string `json:"interval,omitempty"`
 }
 
-// Funding rate heatmap (type: openInterest/marketCap) — $0.00001/call
+// Funding rate heatmap (type: openInterest/marketCap) — $0.001/call
 func (r *CoinankFundingRate) Heatmap(ctx context.Context, params *CoinankFundingRateHeatmapParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Type != "" {
@@ -1791,7 +1791,7 @@ type CoinankRsiListParams struct {
 	Exchange string `json:"exchange,omitempty"`
 }
 
-// RSI screener (interval uppercase: 1H/4H/1D) — $0.00001/call
+// RSI screener (interval uppercase: 1H/4H/1D) — $0.001/call
 func (r *CoinankRsi) List(ctx context.Context, params *CoinankRsiListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Interval != "" {
@@ -1861,7 +1861,7 @@ type CoinankNetPositionsParams struct {
 	Size string `json:"size,omitempty"`
 }
 
-// Net long/short positions historical data — $0.00001/call
+// Net long/short positions historical data — $0.001/call
 func (r *CoinankResource) NetPositions(ctx context.Context, params *CoinankNetPositionsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {

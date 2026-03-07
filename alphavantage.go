@@ -18,7 +18,7 @@ type AlphavantageUsQuoteParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Real-time US stock quote (price, change, volume) — $0.00001/call
+// Real-time US stock quote (price, change, volume) — $0.001/call
 func (r *AlphavantageUs) Quote(ctx context.Context, params *AlphavantageUsQuoteParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -32,7 +32,7 @@ type AlphavantageUsSearchParams struct {
 	Keywords string `json:"keywords,omitempty"`
 }
 
-// Stock symbol search by keyword — $0.00001/call
+// Stock symbol search by keyword — $0.001/call
 func (r *AlphavantageUs) Search(ctx context.Context, params *AlphavantageUsSearchParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Keywords != "" {
@@ -48,7 +48,7 @@ type AlphavantageUsDailyParams struct {
 	Datatype string `json:"datatype,omitempty"`
 }
 
-// Daily OHLCV data (compact=100 days or full history) — $0.00001/call
+// Daily OHLCV data (compact=100 days or full history) — $0.001/call
 func (r *AlphavantageUs) Daily(ctx context.Context, params *AlphavantageUsDailyParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -70,7 +70,7 @@ type AlphavantageUsDailyAdjustedParams struct {
 	Datatype string `json:"datatype,omitempty"`
 }
 
-// Daily adjusted OHLCV (dividend & split adjusted) — $0.00001/call
+// Daily adjusted OHLCV (dividend & split adjusted) — $0.001/call
 func (r *AlphavantageUs) DailyAdjusted(ctx context.Context, params *AlphavantageUsDailyAdjustedParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -93,7 +93,7 @@ type AlphavantageUsIntradayParams struct {
 	Month string `json:"month,omitempty"`
 }
 
-// Intraday OHLCV bars (1/5/15/30/60min intervals) — $0.00001/call
+// Intraday OHLCV bars (1/5/15/30/60min intervals) — $0.001/call
 func (r *AlphavantageUs) Intraday(ctx context.Context, params *AlphavantageUsIntradayParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -116,7 +116,7 @@ type AlphavantageUsWeeklyParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Weekly OHLCV time series — $0.00001/call
+// Weekly OHLCV time series — $0.001/call
 func (r *AlphavantageUs) Weekly(ctx context.Context, params *AlphavantageUsWeeklyParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -130,7 +130,7 @@ type AlphavantageUsMonthlyParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Monthly OHLCV time series — $0.00001/call
+// Monthly OHLCV time series — $0.001/call
 func (r *AlphavantageUs) Monthly(ctx context.Context, params *AlphavantageUsMonthlyParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -144,7 +144,7 @@ type AlphavantageUsOverviewParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Company overview: market cap, PE, PB, revenue, EPS, dividends — $0.00001/call
+// Company overview: market cap, PE, PB, revenue, EPS, dividends — $0.001/call
 func (r *AlphavantageUs) Overview(ctx context.Context, params *AlphavantageUsOverviewParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -158,7 +158,7 @@ type AlphavantageUsEarningsParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Quarterly & annual EPS vs. analyst estimates — $0.00001/call
+// Quarterly & annual EPS vs. analyst estimates — $0.001/call
 func (r *AlphavantageUs) Earnings(ctx context.Context, params *AlphavantageUsEarningsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -172,7 +172,7 @@ type AlphavantageUsIncomeParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Income statement (quarterly & annual) — $0.00001/call
+// Income statement (quarterly & annual) — $0.001/call
 func (r *AlphavantageUs) Income(ctx context.Context, params *AlphavantageUsIncomeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -186,7 +186,7 @@ type AlphavantageUsBalanceSheetParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Balance sheet (quarterly & annual) — $0.00001/call
+// Balance sheet (quarterly & annual) — $0.001/call
 func (r *AlphavantageUs) BalanceSheet(ctx context.Context, params *AlphavantageUsBalanceSheetParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -200,7 +200,7 @@ type AlphavantageUsCashFlowParams struct {
 	Symbol string `json:"symbol,omitempty"`
 }
 
-// Cash flow statement (quarterly & annual) — $0.00001/call
+// Cash flow statement (quarterly & annual) — $0.001/call
 func (r *AlphavantageUs) CashFlow(ctx context.Context, params *AlphavantageUsCashFlowParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -209,7 +209,7 @@ func (r *AlphavantageUs) CashFlow(ctx context.Context, params *AlphavantageUsCas
 	return r.client.get(ctx, "/api/v1/stocks/us/cash-flow", q)
 }
 
-// Top gainers, losers, and most active stocks today — $0.00001/call
+// Top gainers, losers, and most active stocks today — $0.001/call
 func (r *AlphavantageUs) Movers(ctx context.Context) (json.RawMessage, error) {
 	return r.client.get(ctx, "/api/v1/stocks/us/movers", nil)
 }
@@ -224,7 +224,7 @@ type AlphavantageUsNewsParams struct {
 	Limit string `json:"limit,omitempty"`
 }
 
-// News articles with AI sentiment scores (bullish/bearish) — $0.00001/call
+// News articles with AI sentiment scores (bullish/bearish) — $0.001/call
 func (r *AlphavantageUs) News(ctx context.Context, params *AlphavantageUsNewsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Tickers != "" {
@@ -256,7 +256,7 @@ type AlphavantageUsRsiParams struct {
 	SeriesType string `json:"series_type,omitempty"`
 }
 
-// Relative Strength Index (RSI) — $0.00001/call
+// Relative Strength Index (RSI) — $0.001/call
 func (r *AlphavantageUs) Rsi(ctx context.Context, params *AlphavantageUsRsiParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -284,7 +284,7 @@ type AlphavantageUsMacdParams struct {
 	Signalperiod string `json:"signalperiod,omitempty"`
 }
 
-// MACD (signal, histogram, fast/slow lines) — $0.00001/call
+// MACD (signal, histogram, fast/slow lines) — $0.001/call
 func (r *AlphavantageUs) Macd(ctx context.Context, params *AlphavantageUsMacdParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -318,7 +318,7 @@ type AlphavantageUsBbandsParams struct {
 	Nbdevdn string `json:"nbdevdn,omitempty"`
 }
 
-// Bollinger Bands (upper, middle, lower) — $0.00001/call
+// Bollinger Bands (upper, middle, lower) — $0.001/call
 func (r *AlphavantageUs) Bbands(ctx context.Context, params *AlphavantageUsBbandsParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -350,7 +350,7 @@ type AlphavantageUsSmaParams struct {
 	SeriesType string `json:"series_type,omitempty"`
 }
 
-// Simple Moving Average (SMA) — $0.00001/call
+// Simple Moving Average (SMA) — $0.001/call
 func (r *AlphavantageUs) Sma(ctx context.Context, params *AlphavantageUsSmaParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {
@@ -376,7 +376,7 @@ type AlphavantageUsEmaParams struct {
 	SeriesType string `json:"series_type,omitempty"`
 }
 
-// Exponential Moving Average (EMA) — $0.00001/call
+// Exponential Moving Average (EMA) — $0.001/call
 func (r *AlphavantageUs) Ema(ctx context.Context, params *AlphavantageUsEmaParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Symbol != "" {

@@ -21,7 +21,7 @@ type TushareCnDailyParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// A-share daily OHLCV + price change — $0.00001/call
+// A-share daily OHLCV + price change — $0.001/call
 func (r *TushareCn) Daily(ctx context.Context, params *TushareCnDailyParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -47,7 +47,7 @@ type TushareCnWeeklyParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// A-share weekly OHLCV — $0.00001/call
+// A-share weekly OHLCV — $0.001/call
 func (r *TushareCn) Weekly(ctx context.Context, params *TushareCnWeeklyParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -73,7 +73,7 @@ type TushareCnMonthlyParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// A-share monthly OHLCV — $0.00001/call
+// A-share monthly OHLCV — $0.001/call
 func (r *TushareCn) Monthly(ctx context.Context, params *TushareCnMonthlyParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -99,7 +99,7 @@ type TushareCnDailyBasicParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// Daily valuation metrics: PE, PB, turnover rate, market cap — $0.00001/call
+// Daily valuation metrics: PE, PB, turnover rate, market cap — $0.001/call
 func (r *TushareCn) DailyBasic(ctx context.Context, params *TushareCnDailyBasicParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -124,7 +124,7 @@ type TushareCnStockBasicParams struct {
 	IsHs string `json:"is_hs,omitempty"`
 }
 
-// A-share stock list: code, name, listing date, industry — $0.00001/call
+// A-share stock list: code, name, listing date, industry — $0.001/call
 func (r *TushareCn) StockBasic(ctx context.Context, params *TushareCnStockBasicParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -147,7 +147,7 @@ type TushareCnTradeCalParams struct {
 	IsOpen string `json:"is_open,omitempty"`
 }
 
-// Trading calendar — open/closed market days — $0.00001/call
+// Trading calendar — open/closed market days — $0.001/call
 func (r *TushareCn) TradeCal(ctx context.Context, params *TushareCnTradeCalParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.Exchange != "" {
@@ -175,7 +175,7 @@ type TushareCnIncomeParams struct {
 	ReportType string `json:"report_type,omitempty"`
 }
 
-// Income statement: revenue, net profit, gross margin — $0.00001/call
+// Income statement: revenue, net profit, gross margin — $0.001/call
 func (r *TushareCn) Income(ctx context.Context, params *TushareCnIncomeParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -209,7 +209,7 @@ type TushareCnBalanceSheetParams struct {
 	ReportType string `json:"report_type,omitempty"`
 }
 
-// Balance sheet: assets, liabilities, equity — $0.00001/call
+// Balance sheet: assets, liabilities, equity — $0.001/call
 func (r *TushareCn) BalanceSheet(ctx context.Context, params *TushareCnBalanceSheetParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -243,7 +243,7 @@ type TushareCnCashFlowParams struct {
 	ReportType string `json:"report_type,omitempty"`
 }
 
-// Cash flow statement: operating, investing, financing — $0.00001/call
+// Cash flow statement: operating, investing, financing — $0.001/call
 func (r *TushareCn) CashFlow(ctx context.Context, params *TushareCnCashFlowParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -276,7 +276,7 @@ type TushareCnDividendParams struct {
 	ImpAnnDate string `json:"imp_ann_date,omitempty"`
 }
 
-// Historical dividends and rights offerings — $0.00001/call
+// Historical dividends and rights offerings — $0.001/call
 func (r *TushareCn) Dividend(ctx context.Context, params *TushareCnDividendParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -304,7 +304,7 @@ type TushareCnNorthboundParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// Northbound capital flow (Stock Connect daily net inflow) — $0.00001/call
+// Northbound capital flow (Stock Connect daily net inflow) — $0.001/call
 func (r *TushareCn) Northbound(ctx context.Context, params *TushareCnNorthboundParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TradeDate != "" {
@@ -327,7 +327,7 @@ type TushareCnMoneyflowParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// Individual stock capital flow: big money vs. retail net inflow — $0.00001/call
+// Individual stock capital flow: big money vs. retail net inflow — $0.001/call
 func (r *TushareCn) Moneyflow(ctx context.Context, params *TushareCnMoneyflowParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -353,7 +353,7 @@ type TushareCnMarginParams struct {
 	ExchangeId string `json:"exchange_id,omitempty"`
 }
 
-// Margin trading summary: total margin balance — $0.00001/call
+// Margin trading summary: total margin balance — $0.001/call
 func (r *TushareCn) Margin(ctx context.Context, params *TushareCnMarginParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TradeDate != "" {
@@ -379,7 +379,7 @@ type TushareCnMarginDetailParams struct {
 	EndDate string `json:"end_date,omitempty"`
 }
 
-// Per-stock margin trading detail (rzye, rqye) — $0.00001/call
+// Per-stock margin trading detail (rzye, rqye) — $0.001/call
 func (r *TushareCn) MarginDetail(ctx context.Context, params *TushareCnMarginDetailParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TsCode != "" {
@@ -403,7 +403,7 @@ type TushareCnTopListParams struct {
 	TsCode string `json:"ts_code,omitempty"`
 }
 
-// Dragon-Tiger list — notable institutional activity stocks — $0.00001/call
+// Dragon-Tiger list — notable institutional activity stocks — $0.001/call
 func (r *TushareCn) TopList(ctx context.Context, params *TushareCnTopListParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TradeDate != "" {
@@ -421,7 +421,7 @@ type TushareCnTopInstParams struct {
 	TsCode string `json:"ts_code,omitempty"`
 }
 
-// Dragon-Tiger institutional seat buy/sell details — $0.00001/call
+// Dragon-Tiger institutional seat buy/sell details — $0.001/call
 func (r *TushareCn) TopInst(ctx context.Context, params *TushareCnTopInstParams) (json.RawMessage, error) {
 	q := map[string]string{}
 	if params != nil && params.TradeDate != "" {

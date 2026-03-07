@@ -13,17 +13,7 @@ type AnthropicAnthropic struct {
 	client *Client
 }
 
-// Messages API with Claude Sonnet (default) — $0.01/call
-func (r *AnthropicAnthropic) Messages(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
-	return r.client.post(ctx, "/api/v1/ai/anthropic/messages", body)
-}
-
-// Messages API with Claude Haiku (faster, cheaper) — $0.003/call
-func (r *AnthropicAnthropic) MessagesHaiku(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
-	return r.client.post(ctx, "/api/v1/ai/anthropic/messages/haiku", body)
-}
-
-// Messages API with Claude Opus (strongest reasoning) — $0.05/call
+// Messages API with Claude Opus (strongest reasoning) — $0.12/call
 func (r *AnthropicAnthropic) MessagesOpus(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
 	return r.client.post(ctx, "/api/v1/ai/anthropic/messages/opus", body)
 }

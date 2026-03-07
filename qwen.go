@@ -46,12 +46,14 @@ func (r *QwenQwen) ChatVl(ctx context.Context, body map[string]interface{}) (jso
 // QwenResource provides access to all Qwen (通义千问) API endpoints.
 type QwenResource struct {
 	client *Client
-	Qwen   *QwenQwen
+	Qwen *QwenQwen
 }
 
 func newQwenResource(c *Client) *QwenResource {
 	return &QwenResource{
 		client: c,
-		Qwen:   &QwenQwen{client: c},
+		Qwen: &QwenQwen{client: c},
 	}
 }
+
+

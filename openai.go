@@ -13,14 +13,24 @@ type OpenaiOpenai struct {
 	client *Client
 }
 
-// Chat completions with GPT-4o (default) — $0.01/call
-func (r *OpenaiOpenai) Chat(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
-	return r.client.post(ctx, "/api/v1/ai/openai/chat", body)
+// Chat completions with GPT-5.4 (flagship, 1M context) — $0.05/call
+func (r *OpenaiOpenai) Chat54(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
+	return r.client.post(ctx, "/api/v1/ai/openai/chat/5.4", body)
 }
 
-// Chat completions with GPT-4o-mini (faster, cheaper) — $0.003/call
-func (r *OpenaiOpenai) ChatMini(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
-	return r.client.post(ctx, "/api/v1/ai/openai/chat/mini", body)
+// Chat completions with GPT-5.4 Pro (highest precision) — $0.50/call
+func (r *OpenaiOpenai) Chat54Pro(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
+	return r.client.post(ctx, "/api/v1/ai/openai/chat/5.4-pro", body)
+}
+
+// Chat completions with GPT-5.3 Instant (fast, great value) — $0.01/call
+func (r *OpenaiOpenai) Chat53(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
+	return r.client.post(ctx, "/api/v1/ai/openai/chat/5.3", body)
+}
+
+// Chat completions with GPT-5-mini (fastest, cheapest) — $0.005/call
+func (r *OpenaiOpenai) Chat5Mini(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
+	return r.client.post(ctx, "/api/v1/ai/openai/chat/5-mini", body)
 }
 
 // Text embeddings with text-embedding-3-small — $0.002/call
@@ -33,7 +43,7 @@ func (r *OpenaiOpenai) EmbeddingsLarge(ctx context.Context, body map[string]inte
 	return r.client.post(ctx, "/api/v1/ai/openai/embeddings/large", body)
 }
 
-// Image generation with DALL·E — $0.05/call
+// Image generation with GPT Image — $0.05/call
 func (r *OpenaiOpenai) Images(ctx context.Context, body map[string]interface{}) (json.RawMessage, error) {
 	return r.client.post(ctx, "/api/v1/ai/openai/images", body)
 }

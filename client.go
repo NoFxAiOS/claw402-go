@@ -54,8 +54,9 @@ type Client struct {
 	baseURL string
 
 	// Crypto data providers
-	Coinank *CoinankResource
-	Nofxos  *NofxosResource
+	Coinank       *CoinankResource
+	Nofxos        *NofxosResource
+	Coinmarketcap *CoinmarketcapResource
 	// US stock market data
 	Alphavantage *AlphavantageResource
 	Polygon      *PolygonResource
@@ -97,6 +98,7 @@ func New(privateKey string, opts ...Option) (*Client, error) {
 	// Crypto data
 	c.Coinank = newCoinankResource(c)
 	c.Nofxos = newNofxosResource(c)
+	c.Coinmarketcap = newCoinmarketcapResource(c)
 	// US stocks
 	c.Alphavantage = newAlphavantageResource(c)
 	c.Polygon = newPolygonResource(c)
