@@ -70,6 +70,11 @@ type Client struct {
 	Anthropic *AnthropicResource
 	Deepseek  *DeepseekResource
 	Qwen      *QwenResource
+	Gemini    *GeminiResource
+	Grok      *GrokResource
+	Kimi      *KimiResource
+	// Web3 intelligence
+	Rootdata *RootdataResource
 }
 
 // New creates a new claw402 client with the given private key.
@@ -112,6 +117,11 @@ func New(privateKey string, opts ...Option) (*Client, error) {
 	c.Anthropic = newAnthropicResource(c)
 	c.Deepseek = newDeepseekResource(c)
 	c.Qwen = newQwenResource(c)
+	c.Gemini = newGeminiResource(c)
+	c.Grok = newGrokResource(c)
+	c.Kimi = newKimiResource(c)
+	// Web3 intelligence
+	c.Rootdata = newRootdataResource(c)
 	return c, nil
 }
 
